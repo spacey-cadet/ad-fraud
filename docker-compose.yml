@@ -1,0 +1,73 @@
+version: "3.9"
+
+# Everything here is free and self-hostable — no managed cloud service is
+# required to run this platform locally. See README.md for the mapping from
+# each paid tool in the original interview doc to its OSS equivalent here.
+
+services:
+  redpanda:
+    image: redpandadata/redpanda:v24.1.9
+    command:
+      - redpanda
+      - start
+      - --smp=1
+      - --overprovisioned
+      - --node-id=0
+      - --kafka-addr=PLAINTEXT://0.0.0.0:19092
+      - --advertise-kafka-addr=PLAINTEXT://redpanda:19092
+    ports:
+      - "19092:19092"
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:v2.14.1
+    command: >
+      mlflow server --host 0.0.0.0 --port 5000
+      --backend-store-uri sqlite:////mlflow/mlflow.db
+      --default-artifact-root /mlflow/artifacts
+    ports:
+      - "5000:5000"
+    volumes:
+      - mlflow_data:/mlflow
+
+  prometheus:
+    image: prom/prometheus:v2.53.0
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    ports:
+      - "9090:9090"
+
+  grafana:
+    image: grafana/grafana:11.1.0
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - ./monitoring/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards:ro
+
+  click_fraud_serving:
+    build: ./services/click_fraud/serving
+    ports:
+      - "8001:8001"
+    environment:
+      - MODEL_PATH=/app/model.txt
+      - DECISION_THRESHOLD=0.42
+    depends_on:
+      - redis
+      - redpanda
+
+  churn_serving:
+    build: ./services/churn_prediction/serving
+    ports:
+      - "8002:8002"
+    environment:
+      - MODEL_PATH=/app/model.txt
+
+volumes:
+  mlflow_data:

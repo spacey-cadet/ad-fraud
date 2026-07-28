@@ -1,0 +1,17 @@
+# Top-level dev/training environment. Service-specific runtime deps live in
+# services/*/serving/requirements.txt (kept minimal for small Docker images).
+pandas==2.2.2
+numpy==1.26.4
+scikit-learn==1.5.0
+lightgbm==4.3.0
+mlflow==2.14.1
+duckdb==1.0.0
+dbt-duckdb==1.8.1
+feast==0.40.1
+faust-streaming==0.10.21
+confluent-kafka==2.4.0
+whylogs==1.4.4
+scipy==1.13.1
+requests==2.32.3
+pytest==8.2.2
+pyarrow==16.1.0

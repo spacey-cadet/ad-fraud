@@ -1,0 +1,10 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'click-fraud-serving'
+    static_configs:
+      - targets: ['click_fraud_serving:8001']
+  - job_name: 'churn-serving'
+    static_configs:
+      - targets: ['churn_serving:8002']

@@ -1,0 +1,10 @@
+# DuckDB: free, zero-infra warehouse — the OSS stand-in for whatever paid
+# warehouse the interview doc assumed underneath dbt. Swap this profile for
+# Snowflake/BigQuery/Postgres in a real deployment without touching models.
+adplatform_batch:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: '../../../data/warehouse.duckdb'
+      threads: 4

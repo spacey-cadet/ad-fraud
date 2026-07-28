@@ -1,0 +1,9 @@
+version: 2
+sources:
+  - name: raw
+    schema: main
+    tables:
+      - name: users
+      - name: subscription_events
+      - name: ad_clicks
+      - name: dim_advertisers
