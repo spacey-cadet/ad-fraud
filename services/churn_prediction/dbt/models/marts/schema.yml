@@ -1,0 +1,22 @@
+version: 2
+models:
+  - name: churn_features
+    description: "Nightly-refreshed batch feature mart for churn prediction."
+    columns:
+      - name: user_id
+        tests: [not_null, unique]
+      - name: will_cancel_next_cycle
+        tests: [not_null]
+      - name: tenure_days
+        tests:
+          - not_null
+
+  - name: stg_ad_clicks
+    columns:
+      - name: advertiser_id
+        tests:
+          - relationships:
+              to: source('raw', 'dim_advertisers')
+              field: advertiser_id
+      - name: click_id
+        tests: [not_null, unique]

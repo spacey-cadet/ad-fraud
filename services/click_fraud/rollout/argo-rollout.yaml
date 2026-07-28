@@ -1,0 +1,50 @@
+# Argo Rollouts is itself free/open-source (unlike Vertex AI) — this is a
+# real, runnable manifest for anyone with a kind/minikube cluster, matching
+# the primer's 95/5 canary + AnalysisRun pattern.
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: click-fraud-model
+spec:
+  replicas: 10
+  strategy:
+    canary:
+      steps:
+        - setWeight: 5
+        - pause: { duration: 30m }
+        - analysis:
+            templates:
+              - templateName: error-rate-check
+        - setWeight: 50
+        - pause: { duration: 15m }
+        - setWeight: 100
+  selector:
+    matchLabels:
+      app: click-fraud-model
+  template:
+    metadata:
+      labels:
+        app: click-fraud-model
+    spec:
+      containers:
+        - name: click-fraud-model
+          image: click-fraud-model:latest
+          ports:
+            - containerPort: 8001
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: error-rate-check
+spec:
+  metrics:
+    - name: error-rate
+      interval: 5m
+      successCondition: result < 0.002   # 0.2% over a 30-minute window
+      provider:
+        prometheus:
+          address: http://prometheus:9090
+          query: |
+            sum(rate(scoring_requests_total{decision="error"}[30m]))
+            /
+            sum(rate(scoring_requests_total[30m]))

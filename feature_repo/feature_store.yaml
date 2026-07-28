@@ -1,0 +1,12 @@
+# Free/open-source stand-in for "Vertex AI Feature Store" in the primer.
+# Feast is the OSS feature store; Redis is the free, self-hostable online
+# store (same role Vertex AI's online serving plays, just unmanaged).
+project: adplatform
+provider: local
+registry: data/registry.db
+online_store:
+  type: redis
+  connection_string: "redis:6379"
+offline_store:
+  type: file
+entity_key_serialization_version: 2

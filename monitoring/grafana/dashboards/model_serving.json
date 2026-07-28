@@ -1,0 +1,22 @@
+{
+  "title": "Model Serving - Click Fraud & Churn",
+  "panels": [
+    {
+      "title": "Fraud score distribution",
+      "type": "histogram",
+      "targets": [{"expr": "fraud_score_bucket"}]
+    },
+    {
+      "title": "Scoring latency (p95)",
+      "type": "graph",
+      "targets": [{"expr": "histogram_quantile(0.95, rate(scoring_latency_seconds_bucket[5m]))"}]
+    },
+    {
+      "title": "Requests by decision",
+      "type": "graph",
+      "targets": [{"expr": "sum by (decision) (rate(scoring_requests_total[5m]))"}]
+    }
+  ],
+  "schemaVersion": 36,
+  "version": 1
+}
