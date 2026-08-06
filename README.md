@@ -1,9 +1,9 @@
 ---
-title: Ad Fraud
-emoji: 📊
-colorFrom: pink
-colorTo: indigo
-sdk: static
-app_file: app.py
+title: Click Fraud Scoring
+emoji: 🎯
+colorFrom: blue
+colorTo: red
+sdk: docker
+app_port: 7860
 pinned: false
 ---
