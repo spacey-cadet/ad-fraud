@@ -1,7 +1,14 @@
+
+
 FROM python:3.11-slim
 WORKDIR /app
-COPY requirements.txt .
+
+COPY services/click_fraud/serving/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
-COPY app.py model.txt ./
-EXPOSE 8001
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8001"]
+
+COPY services/click_fraud/serving/app.py ./app.py
+COPY services/click_fraud/serving/model.txt ./model.txt
+
+EXPOSE 7860
+ENV MODEL_PATH=model.txt
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "7860"]
