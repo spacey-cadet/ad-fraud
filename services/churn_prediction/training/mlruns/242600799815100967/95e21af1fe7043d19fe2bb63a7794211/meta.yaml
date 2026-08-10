@@ -1,0 +1,15 @@
+artifact_uri: file:///home/lol/Documents/AI%20Engineer/practice/ad-fraud/services/churn_prediction/training/mlruns/242600799815100967/95e21af1fe7043d19fe2bb63a7794211/artifacts
+end_time: 1786356817597
+entry_point_name: ''
+experiment_id: '242600799815100967'
+lifecycle_stage: active
+run_id: 95e21af1fe7043d19fe2bb63a7794211
+run_name: churn_baseline_hierarchy
+run_uuid: 95e21af1fe7043d19fe2bb63a7794211
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1786356816644
+status: 3
+tags: []
+user_id: lol

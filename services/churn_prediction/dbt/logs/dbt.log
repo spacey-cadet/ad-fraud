@@ -1,0 +1,693 @@
+[0m13:03:06.289946 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d331abc8620>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d331b3d88c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d331acc1b50>]}
+
+
+============================== 13:03:06.292551 | 3b83aebc-7ab8-4f85-b4f9-261c9468297a ==============================
+[0m13:03:06.292551 [info ] [MainThread]: Running with dbt=1.8.7
+[0m13:03:06.293135 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '.', 'debug': 'False', 'version_check': 'True', 'log_path': '/home/lol/Documents/AI Engineer/practice/ad-fraud/services/churn_prediction/dbt/logs', 'warn_error': 'None', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'invocation_command': 'dbt run --profiles-dir .', 'static_parser': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m13:03:06.501085 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '3b83aebc-7ab8-4f85-b4f9-261c9468297a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d331be76d80>]}
+[0m13:03:06.551533 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '3b83aebc-7ab8-4f85-b4f9-261c9468297a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d331a2ea7e0>]}
+[0m13:03:06.552459 [info ] [MainThread]: Registered adapter: duckdb=1.8.1
+[0m13:03:06.621313 [debug] [MainThread]: checksum: 4af21dafb485259c48497ac86b711ddb1982f3d0f1c0ca4e09356de488b753c0, vars: {}, profile: , target: , version: 1.8.7
+[0m13:03:06.622014 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m13:03:06.622726 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '3b83aebc-7ab8-4f85-b4f9-261c9468297a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d331a2d50a0>]}
+[0m13:03:07.411501 [warn ] [MainThread]: [[33mWARNING[0m]: Deprecated functionality
+The `tests` config has been renamed to `data_tests`. Please see
+https://docs.getdbt.com/docs/build/data-tests#new-data_tests-syntax for more
+information.
+[0m13:03:07.412138 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '3b83aebc-7ab8-4f85-b4f9-261c9468297a', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d3313137b00>]}
+[0m13:03:07.785563 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '3b83aebc-7ab8-4f85-b4f9-261c9468297a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d3312d9a7e0>]}
+[0m13:03:07.946798 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '3b83aebc-7ab8-4f85-b4f9-261c9468297a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d3311da1ca0>]}
+[0m13:03:07.947696 [info ] [MainThread]: Found 4 models, 7 data tests, 4 sources, 421 macros
+[0m13:03:07.948469 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '3b83aebc-7ab8-4f85-b4f9-261c9468297a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d3311e3e870>]}
+[0m13:03:07.951358 [info ] [MainThread]: 
+[0m13:03:07.952181 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m13:03:07.958146 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_warehouse'
+[0m13:03:07.995342 [debug] [ThreadPool]: Using duckdb connection "list_warehouse"
+[0m13:03:07.995895 [debug] [ThreadPool]: On list_warehouse: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "adplatform_batch", "target_name": "dev", "connection_name": "list_warehouse"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where catalog_name = '"warehouse"'
+    
+  
+  
+[0m13:03:07.996397 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m13:03:08.004604 [debug] [ThreadPool]: SQL status: OK in 0.008 seconds
+[0m13:03:08.006135 [debug] [ThreadPool]: On list_warehouse: Close
+[0m13:03:08.010033 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_warehouse, now create_warehouse_main)
+[0m13:03:08.010606 [debug] [ThreadPool]: Creating schema "database: "warehouse"
+schema: "main"
+"
+[0m13:03:08.016627 [debug] [ThreadPool]: Using duckdb connection "create_warehouse_main"
+[0m13:03:08.017068 [debug] [ThreadPool]: On create_warehouse_main: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "adplatform_batch", "target_name": "dev", "connection_name": "create_warehouse_main"} */
+
+    
+        select type from duckdb_databases()
+        where database_name='warehouse'
+        and type='sqlite'
+    
+  
+[0m13:03:08.017421 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m13:03:08.023590 [debug] [ThreadPool]: SQL status: OK in 0.006 seconds
+[0m13:03:08.025057 [debug] [ThreadPool]: Using duckdb connection "create_warehouse_main"
+[0m13:03:08.025445 [debug] [ThreadPool]: On create_warehouse_main: BEGIN
+[0m13:03:08.025967 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m13:03:08.026335 [debug] [ThreadPool]: Using duckdb connection "create_warehouse_main"
+[0m13:03:08.026677 [debug] [ThreadPool]: On create_warehouse_main: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "adplatform_batch", "target_name": "dev", "connection_name": "create_warehouse_main"} */
+
+    
+    
+        create schema if not exists "warehouse"."main"
+    
+[0m13:03:08.027340 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m13:03:08.028775 [debug] [ThreadPool]: On create_warehouse_main: COMMIT
+[0m13:03:08.029247 [debug] [ThreadPool]: Using duckdb connection "create_warehouse_main"
+[0m13:03:08.029619 [debug] [ThreadPool]: On create_warehouse_main: COMMIT
+[0m13:03:08.030260 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m13:03:08.030662 [debug] [ThreadPool]: On create_warehouse_main: Close
+[0m13:03:08.033446 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_warehouse_main, now list_warehouse_main)
+[0m13:03:08.039046 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main"
+[0m13:03:08.039527 [debug] [ThreadPool]: On list_warehouse_main: BEGIN
+[0m13:03:08.039904 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m13:03:08.045667 [debug] [ThreadPool]: SQL status: OK in 0.006 seconds
+[0m13:03:08.046170 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main"
+[0m13:03:08.046558 [debug] [ThreadPool]: On list_warehouse_main: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "adplatform_batch", "target_name": "dev", "connection_name": "list_warehouse_main"} */
+select
+      'warehouse' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where table_schema = 'main'
+    and table_catalog = 'warehouse'
+  
+[0m13:03:08.070669 [debug] [ThreadPool]: SQL status: OK in 0.024 seconds
+[0m13:03:08.076223 [debug] [ThreadPool]: On list_warehouse_main: ROLLBACK
+[0m13:03:08.077320 [debug] [ThreadPool]: Failed to rollback 'list_warehouse_main'
+[0m13:03:08.077670 [debug] [ThreadPool]: On list_warehouse_main: Close
+[0m13:03:08.081161 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '3b83aebc-7ab8-4f85-b4f9-261c9468297a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d3312d884a0>]}
+[0m13:03:08.081764 [debug] [MainThread]: Using duckdb connection "master"
+[0m13:03:08.082139 [debug] [MainThread]: On master: BEGIN
+[0m13:03:08.082525 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m13:03:08.088145 [debug] [MainThread]: SQL status: OK in 0.006 seconds
+[0m13:03:08.088643 [debug] [MainThread]: On master: COMMIT
+[0m13:03:08.089028 [debug] [MainThread]: Using duckdb connection "master"
+[0m13:03:08.089403 [debug] [MainThread]: On master: COMMIT
+[0m13:03:08.090029 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m13:03:08.090401 [debug] [MainThread]: On master: Close
+[0m13:03:08.092260 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m13:03:08.092758 [info ] [MainThread]: 
+[0m13:03:08.096101 [debug] [Thread-1 (]: Began running node model.adplatform_batch.stg_ad_clicks
+[0m13:03:08.096650 [debug] [Thread-2 (]: Began running node model.adplatform_batch.stg_subscription_events
+[0m13:03:08.097232 [info ] [Thread-1 (]: 1 of 4 START sql view model main.stg_ad_clicks ................................. [RUN]
+[0m13:03:08.098073 [info ] [Thread-2 (]: 2 of 4 START sql view model main.stg_subscription_events ....................... [RUN]
+[0m13:03:08.098695 [debug] [Thread-3 (]: Began running node model.adplatform_batch.stg_users
+[0m13:03:08.099570 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.adplatform_batch.stg_ad_clicks'
+[0m13:03:08.100240 [debug] [Thread-2 (]: Acquiring new duckdb connection 'model.adplatform_batch.stg_subscription_events'
+[0m13:03:08.100894 [info ] [Thread-3 (]: 3 of 4 START sql view model main.stg_users ..................................... [RUN]
+[0m13:03:08.101477 [debug] [Thread-1 (]: Began compiling node model.adplatform_batch.stg_ad_clicks
+[0m13:03:08.101972 [debug] [Thread-2 (]: Began compiling node model.adplatform_batch.stg_subscription_events
+[0m13:03:08.102561 [debug] [Thread-3 (]: Acquiring new duckdb connection 'model.adplatform_batch.stg_users'
+[0m13:03:08.110139 [debug] [Thread-1 (]: Writing injected SQL for node "model.adplatform_batch.stg_ad_clicks"
+[0m13:03:08.113097 [debug] [Thread-2 (]: Writing injected SQL for node "model.adplatform_batch.stg_subscription_events"
+[0m13:03:08.113845 [debug] [Thread-3 (]: Began compiling node model.adplatform_batch.stg_users
+[0m13:03:08.116939 [debug] [Thread-3 (]: Writing injected SQL for node "model.adplatform_batch.stg_users"
+[0m13:03:08.117818 [debug] [Thread-1 (]: Began executing node model.adplatform_batch.stg_ad_clicks
+[0m13:03:08.118283 [debug] [Thread-2 (]: Began executing node model.adplatform_batch.stg_subscription_events
+[0m13:03:08.123942 [debug] [Thread-3 (]: Began executing node model.adplatform_batch.stg_users
+[0m13:03:08.158063 [debug] [Thread-2 (]: Writing runtime sql for node "model.adplatform_batch.stg_subscription_events"
+[0m13:03:08.160975 [debug] [Thread-1 (]: Writing runtime sql for node "model.adplatform_batch.stg_ad_clicks"
+[0m13:03:08.166115 [debug] [Thread-3 (]: Writing runtime sql for node "model.adplatform_batch.stg_users"
+[0m13:03:08.167727 [debug] [Thread-3 (]: Using duckdb connection "model.adplatform_batch.stg_users"
+[0m13:03:08.168342 [debug] [Thread-1 (]: Using duckdb connection "model.adplatform_batch.stg_ad_clicks"
+[0m13:03:08.168791 [debug] [Thread-2 (]: Using duckdb connection "model.adplatform_batch.stg_subscription_events"
+[0m13:03:08.169253 [debug] [Thread-3 (]: On model.adplatform_batch.stg_users: BEGIN
+[0m13:03:08.169915 [debug] [Thread-1 (]: On model.adplatform_batch.stg_ad_clicks: BEGIN
+[0m13:03:08.170394 [debug] [Thread-2 (]: On model.adplatform_batch.stg_subscription_events: BEGIN
+[0m13:03:08.170873 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m13:03:08.171513 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m13:03:08.171995 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m13:03:08.182593 [debug] [Thread-3 (]: SQL status: OK in 0.012 seconds
+[0m13:03:08.183467 [debug] [Thread-3 (]: Using duckdb connection "model.adplatform_batch.stg_users"
+[0m13:03:08.184088 [debug] [Thread-3 (]: On model.adplatform_batch.stg_users: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "adplatform_batch", "target_name": "dev", "node_id": "model.adplatform_batch.stg_users"} */
+
+  
+  create view "warehouse"."main"."stg_users__dbt_tmp" as (
+    select
+    user_id,
+    device_type,
+    signup_date
+from "warehouse"."main"."users"
+  );
+
+[0m13:03:08.184732 [debug] [Thread-1 (]: SQL status: OK in 0.013 seconds
+[0m13:03:08.185214 [debug] [Thread-1 (]: Using duckdb connection "model.adplatform_batch.stg_ad_clicks"
+[0m13:03:08.185783 [debug] [Thread-1 (]: On model.adplatform_batch.stg_ad_clicks: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "adplatform_batch", "target_name": "dev", "node_id": "model.adplatform_batch.stg_ad_clicks"} */
+
+  
+  create view "warehouse"."main"."stg_ad_clicks__dbt_tmp" as (
+    -- Gate 2 lives here: advertiser_id referential integrity against
+-- dim_advertisers. A failure means a stale advertiser record, which
+-- silently misattributes fraud cost to the wrong account (worse than a
+-- duplicate key, because it's silent).
+select
+    click_id,
+    user_id,
+    advertiser_id,
+    event_ts,
+    clicks_last_60s,
+    time_since_last_click_seconds,
+    is_fraud
+from "warehouse"."main"."ad_clicks"
+where click_id is not null   -- ingestion gate's 0%-null-tolerance rule, re-enforced in batch
+  );
+
+[0m13:03:08.186311 [debug] [Thread-2 (]: SQL status: OK in 0.014 seconds
+[0m13:03:08.186844 [debug] [Thread-3 (]: SQL status: OK in 0.002 seconds
+[0m13:03:08.187351 [debug] [Thread-2 (]: Using duckdb connection "model.adplatform_batch.stg_subscription_events"
+[0m13:03:08.193442 [debug] [Thread-1 (]: SQL status: OK in 0.007 seconds
+[0m13:03:08.194160 [debug] [Thread-3 (]: Using duckdb connection "model.adplatform_batch.stg_users"
+[0m13:03:08.194605 [debug] [Thread-2 (]: On model.adplatform_batch.stg_subscription_events: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "adplatform_batch", "target_name": "dev", "node_id": "model.adplatform_batch.stg_subscription_events"} */
+
+  
+  create view "warehouse"."main"."stg_subscription_events__dbt_tmp" as (
+    select
+    user_id,
+    cast(as_of_date as date) as as_of_date,
+    tenure_days,
+    sessions_last_28d,
+    watch_minutes_last_28d,
+    support_tickets_last_90d,
+    payment_failed_last_90d,
+    will_cancel_next_cycle
+from "warehouse"."main"."subscription_events"
+  );
+
+[0m13:03:08.197352 [debug] [Thread-1 (]: Using duckdb connection "model.adplatform_batch.stg_ad_clicks"
+[0m13:03:08.197857 [debug] [Thread-3 (]: On model.adplatform_batch.stg_users: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "adplatform_batch", "target_name": "dev", "node_id": "model.adplatform_batch.stg_users"} */
+alter view "warehouse"."main"."stg_users__dbt_tmp" rename to "stg_users"
+[0m13:03:08.198517 [debug] [Thread-1 (]: On model.adplatform_batch.stg_ad_clicks: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "adplatform_batch", "target_name": "dev", "node_id": "model.adplatform_batch.stg_ad_clicks"} */
+alter view "warehouse"."main"."stg_ad_clicks__dbt_tmp" rename to "stg_ad_clicks"
+[0m13:03:08.199420 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m13:03:08.199852 [debug] [Thread-2 (]: SQL status: OK in 0.002 seconds
+[0m13:03:08.200243 [debug] [Thread-3 (]: SQL status: OK in 0.001 seconds
+[0m13:03:08.223880 [debug] [Thread-2 (]: Using duckdb connection "model.adplatform_batch.stg_subscription_events"
+[0m13:03:08.225755 [debug] [Thread-1 (]: On model.adplatform_batch.stg_ad_clicks: COMMIT
+[0m13:03:08.227397 [debug] [Thread-3 (]: On model.adplatform_batch.stg_users: COMMIT
+[0m13:03:08.227954 [debug] [Thread-2 (]: On model.adplatform_batch.stg_subscription_events: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "adplatform_batch", "target_name": "dev", "node_id": "model.adplatform_batch.stg_subscription_events"} */
+alter view "warehouse"."main"."stg_subscription_events__dbt_tmp" rename to "stg_subscription_events"
+[0m13:03:08.228466 [debug] [Thread-1 (]: Using duckdb connection "model.adplatform_batch.stg_ad_clicks"
+[0m13:03:08.228974 [debug] [Thread-3 (]: Using duckdb connection "model.adplatform_batch.stg_users"
+[0m13:03:08.230164 [debug] [Thread-3 (]: On model.adplatform_batch.stg_users: COMMIT
+[0m13:03:08.229656 [debug] [Thread-1 (]: On model.adplatform_batch.stg_ad_clicks: COMMIT
+[0m13:03:08.230835 [debug] [Thread-2 (]: SQL status: OK in 0.001 seconds
+[0m13:03:08.233287 [debug] [Thread-3 (]: SQL status: OK in 0.003 seconds
+[0m13:03:08.235065 [debug] [Thread-2 (]: On model.adplatform_batch.stg_subscription_events: COMMIT
+[0m13:03:08.235741 [debug] [Thread-1 (]: SQL status: OK in 0.003 seconds
+[0m13:03:08.240854 [debug] [Thread-3 (]: Using duckdb connection "model.adplatform_batch.stg_users"
+[0m13:03:08.241461 [debug] [Thread-2 (]: Using duckdb connection "model.adplatform_batch.stg_subscription_events"
+[0m13:03:08.244884 [debug] [Thread-1 (]: Using duckdb connection "model.adplatform_batch.stg_ad_clicks"
+[0m13:03:08.245611 [debug] [Thread-3 (]: On model.adplatform_batch.stg_users: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "adplatform_batch", "target_name": "dev", "node_id": "model.adplatform_batch.stg_users"} */
+drop view if exists "warehouse"."main"."stg_users__dbt_backup" cascade
+[0m13:03:08.246099 [debug] [Thread-2 (]: On model.adplatform_batch.stg_subscription_events: COMMIT
+[0m13:03:08.246614 [debug] [Thread-1 (]: On model.adplatform_batch.stg_ad_clicks: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "adplatform_batch", "target_name": "dev", "node_id": "model.adplatform_batch.stg_ad_clicks"} */
+drop view if exists "warehouse"."main"."stg_ad_clicks__dbt_backup" cascade
+[0m13:03:08.248552 [debug] [Thread-2 (]: SQL status: OK in 0.001 seconds
+[0m13:03:08.250942 [debug] [Thread-2 (]: Using duckdb connection "model.adplatform_batch.stg_subscription_events"
+[0m13:03:08.251541 [debug] [Thread-1 (]: SQL status: OK in 0.004 seconds
+[0m13:03:08.252158 [debug] [Thread-2 (]: On model.adplatform_batch.stg_subscription_events: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "adplatform_batch", "target_name": "dev", "node_id": "model.adplatform_batch.stg_subscription_events"} */
+drop view if exists "warehouse"."main"."stg_subscription_events__dbt_backup" cascade
+[0m13:03:08.252606 [debug] [Thread-3 (]: SQL status: OK in 0.005 seconds
+[0m13:03:08.255361 [debug] [Thread-1 (]: On model.adplatform_batch.stg_ad_clicks: Close
+[0m13:03:08.257087 [debug] [Thread-3 (]: On model.adplatform_batch.stg_users: Close
+[0m13:03:08.258914 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '3b83aebc-7ab8-4f85-b4f9-261c9468297a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d331be75d90>]}
+[0m13:03:08.259472 [debug] [Thread-2 (]: SQL status: OK in 0.004 seconds
+[0m13:03:08.260094 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '3b83aebc-7ab8-4f85-b4f9-261c9468297a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d3311c4b740>]}
+[0m13:03:08.260921 [info ] [Thread-1 (]: 1 of 4 OK created sql view model main.stg_ad_clicks ............................ [[32mOK[0m in 0.16s]
+[0m13:03:08.262529 [debug] [Thread-2 (]: On model.adplatform_batch.stg_subscription_events: Close
+[0m13:03:08.263228 [info ] [Thread-3 (]: 3 of 4 OK created sql view model main.stg_users ................................ [[32mOK[0m in 0.16s]
+[0m13:03:08.263985 [debug] [Thread-1 (]: Finished running node model.adplatform_batch.stg_ad_clicks
+[0m13:03:08.269925 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '3b83aebc-7ab8-4f85-b4f9-261c9468297a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d33110de960>]}
+[0m13:03:08.270733 [debug] [Thread-3 (]: Finished running node model.adplatform_batch.stg_users
+[0m13:03:08.271881 [info ] [Thread-2 (]: 2 of 4 OK created sql view model main.stg_subscription_events .................. [[32mOK[0m in 0.17s]
+[0m13:03:08.273379 [debug] [Thread-2 (]: Finished running node model.adplatform_batch.stg_subscription_events
+[0m13:03:08.274547 [debug] [Thread-4 (]: Began running node model.adplatform_batch.churn_features
+[0m13:03:08.275181 [info ] [Thread-4 (]: 4 of 4 START sql table model main.churn_features ............................... [RUN]
+[0m13:03:08.275877 [debug] [Thread-4 (]: Acquiring new duckdb connection 'model.adplatform_batch.churn_features'
+[0m13:03:08.276315 [debug] [Thread-4 (]: Began compiling node model.adplatform_batch.churn_features
+[0m13:03:08.280812 [debug] [Thread-4 (]: Writing injected SQL for node "model.adplatform_batch.churn_features"
+[0m13:03:08.281572 [debug] [Thread-4 (]: Began executing node model.adplatform_batch.churn_features
+[0m13:03:08.304611 [debug] [Thread-4 (]: Writing runtime sql for node "model.adplatform_batch.churn_features"
+[0m13:03:08.305394 [debug] [Thread-4 (]: Using duckdb connection "model.adplatform_batch.churn_features"
+[0m13:03:08.305839 [debug] [Thread-4 (]: On model.adplatform_batch.churn_features: BEGIN
+[0m13:03:08.306254 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m13:03:08.313191 [debug] [Thread-4 (]: SQL status: OK in 0.007 seconds
+[0m13:03:08.313717 [debug] [Thread-4 (]: Using duckdb connection "model.adplatform_batch.churn_features"
+[0m13:03:08.314177 [debug] [Thread-4 (]: On model.adplatform_batch.churn_features: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "adplatform_batch", "target_name": "dev", "node_id": "model.adplatform_batch.churn_features"} */
+
+  
+    
+    
+
+    create  table
+      "warehouse"."main"."churn_features__dbt_tmp"
+  
+    as (
+      
+
+-- Batch feature mart consumed by services/churn_prediction/training/train.py
+-- and mirrored into the Feast offline store (feature_repo/features.py ::
+-- churn_fv). Cancellation labels lag a full billing cycle by design (see
+-- data/generate_synthetic_data.py) — this mart is what gets refreshed
+-- nightly by the GitHub Actions batch workflow.
+
+select
+    u.user_id,
+    u.device_type,
+    s.as_of_date,
+    s.tenure_days,
+    s.sessions_last_28d,
+    s.watch_minutes_last_28d,
+    s.support_tickets_last_90d,
+    s.payment_failed_last_90d,
+    s.will_cancel_next_cycle
+from "warehouse"."main"."stg_users" u
+join "warehouse"."main"."stg_subscription_events" s using (user_id)
+    );
+  
+  
+[0m13:03:08.327335 [debug] [Thread-4 (]: SQL status: OK in 0.013 seconds
+[0m13:03:08.330631 [debug] [Thread-4 (]: Using duckdb connection "model.adplatform_batch.churn_features"
+[0m13:03:08.331131 [debug] [Thread-4 (]: On model.adplatform_batch.churn_features: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "adplatform_batch", "target_name": "dev", "node_id": "model.adplatform_batch.churn_features"} */
+alter table "warehouse"."main"."churn_features__dbt_tmp" rename to "churn_features"
+[0m13:03:08.331959 [debug] [Thread-4 (]: SQL status: OK in 0.000 seconds
+[0m13:03:08.337516 [debug] [Thread-4 (]: On model.adplatform_batch.churn_features: COMMIT
+[0m13:03:08.338035 [debug] [Thread-4 (]: Using duckdb connection "model.adplatform_batch.churn_features"
+[0m13:03:08.338474 [debug] [Thread-4 (]: On model.adplatform_batch.churn_features: COMMIT
+[0m13:03:08.343928 [debug] [Thread-4 (]: SQL status: OK in 0.005 seconds
+[0m13:03:08.346266 [debug] [Thread-4 (]: Using duckdb connection "model.adplatform_batch.churn_features"
+[0m13:03:08.346713 [debug] [Thread-4 (]: On model.adplatform_batch.churn_features: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "adplatform_batch", "target_name": "dev", "node_id": "model.adplatform_batch.churn_features"} */
+drop table if exists "warehouse"."main"."churn_features__dbt_backup" cascade
+[0m13:03:08.347402 [debug] [Thread-4 (]: SQL status: OK in 0.000 seconds
+[0m13:03:08.348790 [debug] [Thread-4 (]: On model.adplatform_batch.churn_features: Close
+[0m13:03:08.362821 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '3b83aebc-7ab8-4f85-b4f9-261c9468297a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d3310543800>]}
+[0m13:03:08.363646 [info ] [Thread-4 (]: 4 of 4 OK created sql table model main.churn_features .......................... [[32mOK[0m in 0.09s]
+[0m13:03:08.364397 [debug] [Thread-4 (]: Finished running node model.adplatform_batch.churn_features
+[0m13:03:08.365817 [debug] [MainThread]: Using duckdb connection "master"
+[0m13:03:08.366250 [debug] [MainThread]: On master: BEGIN
+[0m13:03:08.366625 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m13:03:08.372437 [debug] [MainThread]: SQL status: OK in 0.006 seconds
+[0m13:03:08.372941 [debug] [MainThread]: On master: COMMIT
+[0m13:03:08.373311 [debug] [MainThread]: Using duckdb connection "master"
+[0m13:03:08.373672 [debug] [MainThread]: On master: COMMIT
+[0m13:03:08.374206 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m13:03:08.374594 [debug] [MainThread]: On master: Close
+[0m13:03:08.377219 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m13:03:08.377673 [debug] [MainThread]: Connection 'list_warehouse_main' was properly closed.
+[0m13:03:08.378053 [debug] [MainThread]: Connection 'model.adplatform_batch.stg_ad_clicks' was properly closed.
+[0m13:03:08.378417 [debug] [MainThread]: Connection 'model.adplatform_batch.stg_subscription_events' was properly closed.
+[0m13:03:08.378777 [debug] [MainThread]: Connection 'model.adplatform_batch.stg_users' was properly closed.
+[0m13:03:08.379112 [debug] [MainThread]: Connection 'model.adplatform_batch.churn_features' was properly closed.
+[0m13:03:08.379583 [info ] [MainThread]: 
+[0m13:03:08.380000 [info ] [MainThread]: Finished running 3 view models, 1 table model in 0 hours 0 minutes and 0.43 seconds (0.43s).
+[0m13:03:08.381108 [debug] [MainThread]: Command end result
+[0m13:03:08.405631 [info ] [MainThread]: 
+[0m13:03:08.406227 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m13:03:08.406693 [info ] [MainThread]: 
+[0m13:03:08.407199 [info ] [MainThread]: Done. PASS=4 WARN=0 ERROR=0 SKIP=0 TOTAL=4
+[0m13:03:08.408149 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 2.1749942, "process_user_time": 3.305962, "process_kernel_time": 0.139251, "process_mem_max_rss": "161192", "process_in_blocks": "3160", "process_out_blocks": "6624"}
+[0m13:03:08.408765 [debug] [MainThread]: Command `dbt run` succeeded at 13:03:08.408606 after 2.18 seconds
+[0m13:03:08.409226 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d331dc26810>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d331a6cc830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d331a22b740>]}
+[0m13:03:08.409658 [debug] [MainThread]: Flushing usage events
+[0m13:03:11.187852 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x789533f091f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x789534297950>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x789533dc2300>]}
+
+
+============================== 13:03:11.190855 | 2bdc9692-7d0b-4bf0-bab3-6d57859a3d94 ==============================
+[0m13:03:11.190855 [info ] [MainThread]: Running with dbt=1.8.7
+[0m13:03:11.191551 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'profiles_dir': '.', 'log_path': '/home/lol/Documents/AI Engineer/practice/ad-fraud/services/churn_prediction/dbt/logs', 'version_check': 'True', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt test --profiles-dir .', 'log_format': 'default', 'introspect': 'True', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m13:03:11.378785 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '2bdc9692-7d0b-4bf0-bab3-6d57859a3d94', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7895350753a0>]}
+[0m13:03:11.435695 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '2bdc9692-7d0b-4bf0-bab3-6d57859a3d94', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7895333306e0>]}
+[0m13:03:11.436520 [info ] [MainThread]: Registered adapter: duckdb=1.8.1
+[0m13:03:11.513318 [debug] [MainThread]: checksum: 4af21dafb485259c48497ac86b711ddb1982f3d0f1c0ca4e09356de488b753c0, vars: {}, profile: , target: , version: 1.8.7
+[0m13:03:11.705112 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m13:03:11.705582 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m13:03:11.753549 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '2bdc9692-7d0b-4bf0-bab3-6d57859a3d94', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x789535b89340>]}
+[0m13:03:11.861458 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '2bdc9692-7d0b-4bf0-bab3-6d57859a3d94', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78952b931a60>]}
+[0m13:03:11.862204 [info ] [MainThread]: Found 4 models, 7 data tests, 4 sources, 421 macros
+[0m13:03:11.862729 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '2bdc9692-7d0b-4bf0-bab3-6d57859a3d94', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78952bcc92e0>]}
+[0m13:03:11.865335 [info ] [MainThread]: 
+[0m13:03:11.866174 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m13:03:11.871838 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_warehouse_main'
+[0m13:03:11.905880 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main"
+[0m13:03:11.906338 [debug] [ThreadPool]: On list_warehouse_main: BEGIN
+[0m13:03:11.906729 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m13:03:11.913673 [debug] [ThreadPool]: SQL status: OK in 0.007 seconds
+[0m13:03:11.914180 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main"
+[0m13:03:11.914559 [debug] [ThreadPool]: On list_warehouse_main: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "adplatform_batch", "target_name": "dev", "connection_name": "list_warehouse_main"} */
+select
+      'warehouse' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where table_schema = 'main'
+    and table_catalog = 'warehouse'
+  
+[0m13:03:11.938918 [debug] [ThreadPool]: SQL status: OK in 0.024 seconds
+[0m13:03:11.944800 [debug] [ThreadPool]: On list_warehouse_main: ROLLBACK
+[0m13:03:11.946045 [debug] [ThreadPool]: Failed to rollback 'list_warehouse_main'
+[0m13:03:11.946416 [debug] [ThreadPool]: On list_warehouse_main: Close
+[0m13:03:11.950965 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '2bdc9692-7d0b-4bf0-bab3-6d57859a3d94', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x789534feadb0>]}
+[0m13:03:11.951604 [debug] [MainThread]: Using duckdb connection "master"
+[0m13:03:11.952067 [debug] [MainThread]: On master: BEGIN
+[0m13:03:11.952488 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m13:03:11.958343 [debug] [MainThread]: SQL status: OK in 0.006 seconds
+[0m13:03:11.958914 [debug] [MainThread]: On master: COMMIT
+[0m13:03:11.959352 [debug] [MainThread]: Using duckdb connection "master"
+[0m13:03:11.959712 [debug] [MainThread]: On master: COMMIT
+[0m13:03:11.960225 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m13:03:11.960591 [debug] [MainThread]: On master: Close
+[0m13:03:11.962362 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m13:03:11.962854 [info ] [MainThread]: 
+[0m13:03:11.965402 [debug] [Thread-1 (]: Began running node test.adplatform_batch.not_null_churn_features_tenure_days.3608ce7188
+[0m13:03:11.965931 [debug] [Thread-2 (]: Began running node test.adplatform_batch.not_null_churn_features_user_id.dc2070839c
+[0m13:03:11.966364 [debug] [Thread-3 (]: Began running node test.adplatform_batch.not_null_churn_features_will_cancel_next_cycle.5e11f3208d
+[0m13:03:11.966868 [info ] [Thread-1 (]: 1 of 7 START test not_null_churn_features_tenure_days .......................... [RUN]
+[0m13:03:11.967430 [debug] [Thread-4 (]: Began running node test.adplatform_batch.not_null_stg_ad_clicks_click_id.541089ef6f
+[0m13:03:11.967939 [info ] [Thread-2 (]: 2 of 7 START test not_null_churn_features_user_id .............................. [RUN]
+[0m13:03:11.968494 [info ] [Thread-3 (]: 3 of 7 START test not_null_churn_features_will_cancel_next_cycle ............... [RUN]
+[0m13:03:11.969321 [debug] [Thread-1 (]: Acquiring new duckdb connection 'test.adplatform_batch.not_null_churn_features_tenure_days.3608ce7188'
+[0m13:03:11.969823 [info ] [Thread-4 (]: 4 of 7 START test not_null_stg_ad_clicks_click_id .............................. [RUN]
+[0m13:03:11.970444 [debug] [Thread-2 (]: Acquiring new duckdb connection 'test.adplatform_batch.not_null_churn_features_user_id.dc2070839c'
+[0m13:03:11.970959 [debug] [Thread-3 (]: Acquiring new duckdb connection 'test.adplatform_batch.not_null_churn_features_will_cancel_next_cycle.5e11f3208d'
+[0m13:03:11.971426 [debug] [Thread-1 (]: Began compiling node test.adplatform_batch.not_null_churn_features_tenure_days.3608ce7188
+[0m13:03:11.971967 [debug] [Thread-4 (]: Acquiring new duckdb connection 'test.adplatform_batch.not_null_stg_ad_clicks_click_id.541089ef6f'
+[0m13:03:11.972440 [debug] [Thread-2 (]: Began compiling node test.adplatform_batch.not_null_churn_features_user_id.dc2070839c
+[0m13:03:11.972882 [debug] [Thread-3 (]: Began compiling node test.adplatform_batch.not_null_churn_features_will_cancel_next_cycle.5e11f3208d
+[0m13:03:11.989350 [debug] [Thread-4 (]: Began compiling node test.adplatform_batch.not_null_stg_ad_clicks_click_id.541089ef6f
+[0m13:03:11.991151 [debug] [Thread-1 (]: Writing injected SQL for node "test.adplatform_batch.not_null_churn_features_tenure_days.3608ce7188"
+[0m13:03:11.996533 [debug] [Thread-2 (]: Writing injected SQL for node "test.adplatform_batch.not_null_churn_features_user_id.dc2070839c"
+[0m13:03:12.000459 [debug] [Thread-3 (]: Writing injected SQL for node "test.adplatform_batch.not_null_churn_features_will_cancel_next_cycle.5e11f3208d"
+[0m13:03:12.004799 [debug] [Thread-4 (]: Writing injected SQL for node "test.adplatform_batch.not_null_stg_ad_clicks_click_id.541089ef6f"
+[0m13:03:12.006069 [debug] [Thread-1 (]: Began executing node test.adplatform_batch.not_null_churn_features_tenure_days.3608ce7188
+[0m13:03:12.008009 [debug] [Thread-2 (]: Began executing node test.adplatform_batch.not_null_churn_features_user_id.dc2070839c
+[0m13:03:12.008590 [debug] [Thread-3 (]: Began executing node test.adplatform_batch.not_null_churn_features_will_cancel_next_cycle.5e11f3208d
+[0m13:03:12.027611 [debug] [Thread-4 (]: Began executing node test.adplatform_batch.not_null_stg_ad_clicks_click_id.541089ef6f
+[0m13:03:12.034257 [debug] [Thread-1 (]: Writing runtime sql for node "test.adplatform_batch.not_null_churn_features_tenure_days.3608ce7188"
+[0m13:03:12.036966 [debug] [Thread-2 (]: Writing runtime sql for node "test.adplatform_batch.not_null_churn_features_user_id.dc2070839c"
+[0m13:03:12.039258 [debug] [Thread-3 (]: Writing runtime sql for node "test.adplatform_batch.not_null_churn_features_will_cancel_next_cycle.5e11f3208d"
+[0m13:03:12.041331 [debug] [Thread-4 (]: Writing runtime sql for node "test.adplatform_batch.not_null_stg_ad_clicks_click_id.541089ef6f"
+[0m13:03:12.042433 [debug] [Thread-1 (]: Using duckdb connection "test.adplatform_batch.not_null_churn_features_tenure_days.3608ce7188"
+[0m13:03:12.043102 [debug] [Thread-2 (]: Using duckdb connection "test.adplatform_batch.not_null_churn_features_user_id.dc2070839c"
+[0m13:03:12.043675 [debug] [Thread-3 (]: Using duckdb connection "test.adplatform_batch.not_null_churn_features_will_cancel_next_cycle.5e11f3208d"
+[0m13:03:12.044207 [debug] [Thread-1 (]: On test.adplatform_batch.not_null_churn_features_tenure_days.3608ce7188: BEGIN
+[0m13:03:12.044826 [debug] [Thread-4 (]: Using duckdb connection "test.adplatform_batch.not_null_stg_ad_clicks_click_id.541089ef6f"
+[0m13:03:12.045303 [debug] [Thread-2 (]: On test.adplatform_batch.not_null_churn_features_user_id.dc2070839c: BEGIN
+[0m13:03:12.045712 [debug] [Thread-3 (]: On test.adplatform_batch.not_null_churn_features_will_cancel_next_cycle.5e11f3208d: BEGIN
+[0m13:03:12.046247 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m13:03:12.046967 [debug] [Thread-4 (]: On test.adplatform_batch.not_null_stg_ad_clicks_click_id.541089ef6f: BEGIN
+[0m13:03:12.047480 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m13:03:12.048040 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m13:03:12.055148 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m13:03:12.055998 [debug] [Thread-1 (]: SQL status: OK in 0.010 seconds
+[0m13:03:12.057301 [debug] [Thread-2 (]: SQL status: OK in 0.010 seconds
+[0m13:03:12.057824 [debug] [Thread-1 (]: Using duckdb connection "test.adplatform_batch.not_null_churn_features_tenure_days.3608ce7188"
+[0m13:03:12.058261 [debug] [Thread-3 (]: SQL status: OK in 0.010 seconds
+[0m13:03:12.058697 [debug] [Thread-4 (]: SQL status: OK in 0.004 seconds
+[0m13:03:12.059082 [debug] [Thread-2 (]: Using duckdb connection "test.adplatform_batch.not_null_churn_features_user_id.dc2070839c"
+[0m13:03:12.059568 [debug] [Thread-1 (]: On test.adplatform_batch.not_null_churn_features_tenure_days.3608ce7188: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "adplatform_batch", "target_name": "dev", "node_id": "test.adplatform_batch.not_null_churn_features_tenure_days.3608ce7188"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select tenure_days
+from "warehouse"."main"."churn_features"
+where tenure_days is null
+
+
+
+      
+    ) dbt_internal_test
+[0m13:03:12.060048 [debug] [Thread-3 (]: Using duckdb connection "test.adplatform_batch.not_null_churn_features_will_cancel_next_cycle.5e11f3208d"
+[0m13:03:12.060511 [debug] [Thread-4 (]: Using duckdb connection "test.adplatform_batch.not_null_stg_ad_clicks_click_id.541089ef6f"
+[0m13:03:12.060996 [debug] [Thread-2 (]: On test.adplatform_batch.not_null_churn_features_user_id.dc2070839c: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "adplatform_batch", "target_name": "dev", "node_id": "test.adplatform_batch.not_null_churn_features_user_id.dc2070839c"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select user_id
+from "warehouse"."main"."churn_features"
+where user_id is null
+
+
+
+      
+    ) dbt_internal_test
+[0m13:03:12.061631 [debug] [Thread-3 (]: On test.adplatform_batch.not_null_churn_features_will_cancel_next_cycle.5e11f3208d: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "adplatform_batch", "target_name": "dev", "node_id": "test.adplatform_batch.not_null_churn_features_will_cancel_next_cycle.5e11f3208d"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select will_cancel_next_cycle
+from "warehouse"."main"."churn_features"
+where will_cancel_next_cycle is null
+
+
+
+      
+    ) dbt_internal_test
+[0m13:03:12.062145 [debug] [Thread-4 (]: On test.adplatform_batch.not_null_stg_ad_clicks_click_id.541089ef6f: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "adplatform_batch", "target_name": "dev", "node_id": "test.adplatform_batch.not_null_stg_ad_clicks_click_id.541089ef6f"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select click_id
+from "warehouse"."main"."stg_ad_clicks"
+where click_id is null
+
+
+
+      
+    ) dbt_internal_test
+[0m13:03:12.063133 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m13:03:12.068098 [debug] [Thread-1 (]: On test.adplatform_batch.not_null_churn_features_tenure_days.3608ce7188: ROLLBACK
+[0m13:03:12.069175 [debug] [Thread-1 (]: Failed to rollback 'test.adplatform_batch.not_null_churn_features_tenure_days.3608ce7188'
+[0m13:03:12.069621 [debug] [Thread-4 (]: SQL status: OK in 0.007 seconds
+[0m13:03:12.070104 [debug] [Thread-3 (]: SQL status: OK in 0.007 seconds
+[0m13:03:12.070729 [debug] [Thread-2 (]: SQL status: OK in 0.008 seconds
+[0m13:03:12.071144 [debug] [Thread-1 (]: On test.adplatform_batch.not_null_churn_features_tenure_days.3608ce7188: Close
+[0m13:03:12.073428 [debug] [Thread-4 (]: On test.adplatform_batch.not_null_stg_ad_clicks_click_id.541089ef6f: ROLLBACK
+[0m13:03:12.075116 [debug] [Thread-3 (]: On test.adplatform_batch.not_null_churn_features_will_cancel_next_cycle.5e11f3208d: ROLLBACK
+[0m13:03:12.076449 [debug] [Thread-2 (]: On test.adplatform_batch.not_null_churn_features_user_id.dc2070839c: ROLLBACK
+[0m13:03:12.077269 [info ] [Thread-1 (]: 1 of 7 PASS not_null_churn_features_tenure_days ................................ [[32mPASS[0m in 0.11s]
+[0m13:03:12.079130 [debug] [Thread-4 (]: Failed to rollback 'test.adplatform_batch.not_null_stg_ad_clicks_click_id.541089ef6f'
+[0m13:03:12.080303 [debug] [Thread-3 (]: Failed to rollback 'test.adplatform_batch.not_null_churn_features_will_cancel_next_cycle.5e11f3208d'
+[0m13:03:12.081473 [debug] [Thread-2 (]: Failed to rollback 'test.adplatform_batch.not_null_churn_features_user_id.dc2070839c'
+[0m13:03:12.082510 [debug] [Thread-1 (]: Finished running node test.adplatform_batch.not_null_churn_features_tenure_days.3608ce7188
+[0m13:03:12.083315 [debug] [Thread-4 (]: On test.adplatform_batch.not_null_stg_ad_clicks_click_id.541089ef6f: Close
+[0m13:03:12.084776 [debug] [Thread-3 (]: On test.adplatform_batch.not_null_churn_features_will_cancel_next_cycle.5e11f3208d: Close
+[0m13:03:12.085428 [debug] [Thread-2 (]: On test.adplatform_batch.not_null_churn_features_user_id.dc2070839c: Close
+[0m13:03:12.086007 [debug] [Thread-1 (]: Began running node test.adplatform_batch.relationships_stg_ad_clicks_advertiser_id__advertiser_id__source_raw_dim_advertisers_.61f02a8187
+[0m13:03:12.086785 [info ] [Thread-4 (]: 4 of 7 PASS not_null_stg_ad_clicks_click_id .................................... [[32mPASS[0m in 0.11s]
+[0m13:03:12.087569 [info ] [Thread-3 (]: 3 of 7 PASS not_null_churn_features_will_cancel_next_cycle ..................... [[32mPASS[0m in 0.12s]
+[0m13:03:12.090282 [info ] [Thread-2 (]: 2 of 7 PASS not_null_churn_features_user_id .................................... [[32mPASS[0m in 0.12s]
+[0m13:03:12.090908 [info ] [Thread-1 (]: 5 of 7 START test relationships_stg_ad_clicks_advertiser_id__advertiser_id__source_raw_dim_advertisers_  [RUN]
+[0m13:03:12.091626 [debug] [Thread-4 (]: Finished running node test.adplatform_batch.not_null_stg_ad_clicks_click_id.541089ef6f
+[0m13:03:12.092394 [debug] [Thread-3 (]: Finished running node test.adplatform_batch.not_null_churn_features_will_cancel_next_cycle.5e11f3208d
+[0m13:03:12.093373 [debug] [Thread-2 (]: Finished running node test.adplatform_batch.not_null_churn_features_user_id.dc2070839c
+[0m13:03:12.093921 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.adplatform_batch.not_null_churn_features_tenure_days.3608ce7188, now test.adplatform_batch.relationships_stg_ad_clicks_advertiser_id__advertiser_id__source_raw_dim_advertisers_.61f02a8187)
+[0m13:03:12.094502 [debug] [Thread-4 (]: Began running node test.adplatform_batch.unique_churn_features_user_id.7fd27640e7
+[0m13:03:12.095140 [debug] [Thread-3 (]: Began running node test.adplatform_batch.unique_stg_ad_clicks_click_id.e01c18961e
+[0m13:03:12.095992 [debug] [Thread-1 (]: Began compiling node test.adplatform_batch.relationships_stg_ad_clicks_advertiser_id__advertiser_id__source_raw_dim_advertisers_.61f02a8187
+[0m13:03:12.096668 [info ] [Thread-4 (]: 6 of 7 START test unique_churn_features_user_id ................................ [RUN]
+[0m13:03:12.097451 [info ] [Thread-3 (]: 7 of 7 START test unique_stg_ad_clicks_click_id ................................ [RUN]
+[0m13:03:12.108009 [debug] [Thread-1 (]: Writing injected SQL for node "test.adplatform_batch.relationships_stg_ad_clicks_advertiser_id__advertiser_id__source_raw_dim_advertisers_.61f02a8187"
+[0m13:03:12.108735 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.adplatform_batch.not_null_stg_ad_clicks_click_id.541089ef6f, now test.adplatform_batch.unique_churn_features_user_id.7fd27640e7)
+[0m13:03:12.109391 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.adplatform_batch.not_null_churn_features_will_cancel_next_cycle.5e11f3208d, now test.adplatform_batch.unique_stg_ad_clicks_click_id.e01c18961e)
+[0m13:03:12.110068 [debug] [Thread-4 (]: Began compiling node test.adplatform_batch.unique_churn_features_user_id.7fd27640e7
+[0m13:03:12.110557 [debug] [Thread-3 (]: Began compiling node test.adplatform_batch.unique_stg_ad_clicks_click_id.e01c18961e
+[0m13:03:12.111034 [debug] [Thread-1 (]: Began executing node test.adplatform_batch.relationships_stg_ad_clicks_advertiser_id__advertiser_id__source_raw_dim_advertisers_.61f02a8187
+[0m13:03:12.117645 [debug] [Thread-4 (]: Writing injected SQL for node "test.adplatform_batch.unique_churn_features_user_id.7fd27640e7"
+[0m13:03:12.122621 [debug] [Thread-3 (]: Writing injected SQL for node "test.adplatform_batch.unique_stg_ad_clicks_click_id.e01c18961e"
+[0m13:03:12.125094 [debug] [Thread-1 (]: Writing runtime sql for node "test.adplatform_batch.relationships_stg_ad_clicks_advertiser_id__advertiser_id__source_raw_dim_advertisers_.61f02a8187"
+[0m13:03:12.125972 [debug] [Thread-4 (]: Began executing node test.adplatform_batch.unique_churn_features_user_id.7fd27640e7
+[0m13:03:12.126445 [debug] [Thread-3 (]: Began executing node test.adplatform_batch.unique_stg_ad_clicks_click_id.e01c18961e
+[0m13:03:12.130364 [debug] [Thread-4 (]: Writing runtime sql for node "test.adplatform_batch.unique_churn_features_user_id.7fd27640e7"
+[0m13:03:12.131223 [debug] [Thread-1 (]: Using duckdb connection "test.adplatform_batch.relationships_stg_ad_clicks_advertiser_id__advertiser_id__source_raw_dim_advertisers_.61f02a8187"
+[0m13:03:12.133499 [debug] [Thread-3 (]: Writing runtime sql for node "test.adplatform_batch.unique_stg_ad_clicks_click_id.e01c18961e"
+[0m13:03:12.134280 [debug] [Thread-1 (]: On test.adplatform_batch.relationships_stg_ad_clicks_advertiser_id__advertiser_id__source_raw_dim_advertisers_.61f02a8187: BEGIN
+[0m13:03:12.134865 [debug] [Thread-4 (]: Using duckdb connection "test.adplatform_batch.unique_churn_features_user_id.7fd27640e7"
+[0m13:03:12.135498 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m13:03:12.136178 [debug] [Thread-4 (]: On test.adplatform_batch.unique_churn_features_user_id.7fd27640e7: BEGIN
+[0m13:03:12.136917 [debug] [Thread-3 (]: Using duckdb connection "test.adplatform_batch.unique_stg_ad_clicks_click_id.e01c18961e"
+[0m13:03:12.143025 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m13:03:12.144023 [debug] [Thread-3 (]: On test.adplatform_batch.unique_stg_ad_clicks_click_id.e01c18961e: BEGIN
+[0m13:03:12.144557 [debug] [Thread-1 (]: SQL status: OK in 0.009 seconds
+[0m13:03:12.145301 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m13:03:12.145862 [debug] [Thread-4 (]: SQL status: OK in 0.003 seconds
+[0m13:03:12.146380 [debug] [Thread-1 (]: Using duckdb connection "test.adplatform_batch.relationships_stg_ad_clicks_advertiser_id__advertiser_id__source_raw_dim_advertisers_.61f02a8187"
+[0m13:03:12.147110 [debug] [Thread-4 (]: Using duckdb connection "test.adplatform_batch.unique_churn_features_user_id.7fd27640e7"
+[0m13:03:12.147617 [debug] [Thread-3 (]: SQL status: OK in 0.002 seconds
+[0m13:03:12.148165 [debug] [Thread-1 (]: On test.adplatform_batch.relationships_stg_ad_clicks_advertiser_id__advertiser_id__source_raw_dim_advertisers_.61f02a8187: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "adplatform_batch", "target_name": "dev", "node_id": "test.adplatform_batch.relationships_stg_ad_clicks_advertiser_id__advertiser_id__source_raw_dim_advertisers_.61f02a8187"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+with child as (
+    select advertiser_id as from_field
+    from "warehouse"."main"."stg_ad_clicks"
+    where advertiser_id is not null
+),
+
+parent as (
+    select advertiser_id as to_field
+    from "warehouse"."main"."dim_advertisers"
+)
+
+select
+    from_field
+
+from child
+left join parent
+    on child.from_field = parent.to_field
+
+where parent.to_field is null
+
+
+
+      
+    ) dbt_internal_test
+[0m13:03:12.148695 [debug] [Thread-4 (]: On test.adplatform_batch.unique_churn_features_user_id.7fd27640e7: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "adplatform_batch", "target_name": "dev", "node_id": "test.adplatform_batch.unique_churn_features_user_id.7fd27640e7"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    user_id as unique_field,
+    count(*) as n_records
+
+from "warehouse"."main"."churn_features"
+where user_id is not null
+group by user_id
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m13:03:12.149238 [debug] [Thread-3 (]: Using duckdb connection "test.adplatform_batch.unique_stg_ad_clicks_click_id.e01c18961e"
+[0m13:03:12.150180 [debug] [Thread-3 (]: On test.adplatform_batch.unique_stg_ad_clicks_click_id.e01c18961e: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "adplatform_batch", "target_name": "dev", "node_id": "test.adplatform_batch.unique_stg_ad_clicks_click_id.e01c18961e"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    click_id as unique_field,
+    count(*) as n_records
+
+from "warehouse"."main"."stg_ad_clicks"
+where click_id is not null
+group by click_id
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m13:03:12.159543 [debug] [Thread-4 (]: SQL status: OK in 0.009 seconds
+[0m13:03:12.163096 [debug] [Thread-4 (]: On test.adplatform_batch.unique_churn_features_user_id.7fd27640e7: ROLLBACK
+[0m13:03:12.164975 [debug] [Thread-4 (]: Failed to rollback 'test.adplatform_batch.unique_churn_features_user_id.7fd27640e7'
+[0m13:03:12.165987 [debug] [Thread-1 (]: SQL status: OK in 0.016 seconds
+[0m13:03:12.166652 [debug] [Thread-4 (]: On test.adplatform_batch.unique_churn_features_user_id.7fd27640e7: Close
+[0m13:03:12.168080 [info ] [Thread-4 (]: 6 of 7 PASS unique_churn_features_user_id ...................................... [[32mPASS[0m in 0.06s]
+[0m13:03:12.169419 [debug] [Thread-4 (]: Finished running node test.adplatform_batch.unique_churn_features_user_id.7fd27640e7
+[0m13:03:12.171400 [debug] [Thread-1 (]: On test.adplatform_batch.relationships_stg_ad_clicks_advertiser_id__advertiser_id__source_raw_dim_advertisers_.61f02a8187: ROLLBACK
+[0m13:03:12.173348 [debug] [Thread-1 (]: Failed to rollback 'test.adplatform_batch.relationships_stg_ad_clicks_advertiser_id__advertiser_id__source_raw_dim_advertisers_.61f02a8187'
+[0m13:03:12.174887 [debug] [Thread-1 (]: On test.adplatform_batch.relationships_stg_ad_clicks_advertiser_id__advertiser_id__source_raw_dim_advertisers_.61f02a8187: Close
+[0m13:03:12.176712 [info ] [Thread-1 (]: 5 of 7 PASS relationships_stg_ad_clicks_advertiser_id__advertiser_id__source_raw_dim_advertisers_  [[32mPASS[0m in 0.08s]
+[0m13:03:12.178177 [debug] [Thread-1 (]: Finished running node test.adplatform_batch.relationships_stg_ad_clicks_advertiser_id__advertiser_id__source_raw_dim_advertisers_.61f02a8187
+[0m13:03:12.185395 [debug] [Thread-3 (]: SQL status: OK in 0.034 seconds
+[0m13:03:12.188400 [debug] [Thread-3 (]: On test.adplatform_batch.unique_stg_ad_clicks_click_id.e01c18961e: ROLLBACK
+[0m13:03:12.189774 [debug] [Thread-3 (]: Failed to rollback 'test.adplatform_batch.unique_stg_ad_clicks_click_id.e01c18961e'
+[0m13:03:12.190311 [debug] [Thread-3 (]: On test.adplatform_batch.unique_stg_ad_clicks_click_id.e01c18961e: Close
+[0m13:03:12.197567 [info ] [Thread-3 (]: 7 of 7 PASS unique_stg_ad_clicks_click_id ...................................... [[32mPASS[0m in 0.09s]
+[0m13:03:12.198812 [debug] [Thread-3 (]: Finished running node test.adplatform_batch.unique_stg_ad_clicks_click_id.e01c18961e
+[0m13:03:12.200672 [debug] [MainThread]: Using duckdb connection "master"
+[0m13:03:12.201190 [debug] [MainThread]: On master: BEGIN
+[0m13:03:12.201660 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m13:03:12.209067 [debug] [MainThread]: SQL status: OK in 0.007 seconds
+[0m13:03:12.209619 [debug] [MainThread]: On master: COMMIT
+[0m13:03:12.210141 [debug] [MainThread]: Using duckdb connection "master"
+[0m13:03:12.210642 [debug] [MainThread]: On master: COMMIT
+[0m13:03:12.211440 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m13:03:12.211895 [debug] [MainThread]: On master: Close
+[0m13:03:12.213808 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m13:03:12.214304 [debug] [MainThread]: Connection 'list_warehouse_main' was properly closed.
+[0m13:03:12.214798 [debug] [MainThread]: Connection 'test.adplatform_batch.relationships_stg_ad_clicks_advertiser_id__advertiser_id__source_raw_dim_advertisers_.61f02a8187' was properly closed.
+[0m13:03:12.215182 [debug] [MainThread]: Connection 'test.adplatform_batch.not_null_churn_features_user_id.dc2070839c' was properly closed.
+[0m13:03:12.215545 [debug] [MainThread]: Connection 'test.adplatform_batch.unique_stg_ad_clicks_click_id.e01c18961e' was properly closed.
+[0m13:03:12.215925 [debug] [MainThread]: Connection 'test.adplatform_batch.unique_churn_features_user_id.7fd27640e7' was properly closed.
+[0m13:03:12.216365 [info ] [MainThread]: 
+[0m13:03:12.216831 [info ] [MainThread]: Finished running 7 data tests in 0 hours 0 minutes and 0.35 seconds (0.35s).
+[0m13:03:12.219020 [debug] [MainThread]: Command end result
+[0m13:03:12.251177 [info ] [MainThread]: 
+[0m13:03:12.252037 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m13:03:12.252761 [info ] [MainThread]: 
+[0m13:03:12.253557 [info ] [MainThread]: Done. PASS=7 WARN=0 ERROR=0 SKIP=0 TOTAL=7
+[0m13:03:12.254541 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": true, "command_wall_clock_time": 1.1432914, "process_user_time": 2.271217, "process_kernel_time": 0.166529, "process_mem_max_rss": "172768", "process_out_blocks": "1960", "process_in_blocks": "0"}
+[0m13:03:12.255175 [debug] [MainThread]: Command `dbt test` succeeded at 13:03:12.255015 after 1.14 seconds
+[0m13:03:12.255704 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7895337ef1d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7895283830e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78953331fb30>]}
+[0m13:03:12.256216 [debug] [MainThread]: Flushing usage events

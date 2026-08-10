@@ -52,7 +52,9 @@ services:
       - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards:ro
 
   click_fraud_serving:
-    build: ./services/click_fraud/serving
+    build:
+      context: ./services/click_fraud
+      dockerfile: serving/Dockerfile
     ports:
       - "8001:8001"
     environment:
@@ -61,9 +63,10 @@ services:
     depends_on:
       - redis
       - redpanda
-
   churn_serving:
-    build: ./services/churn_prediction/serving
+    build:
+      context: ./services/churn_prediction
+      dockerfile: serving/Dockerfile
     ports:
       - "8002:8002"
     environment:
