@@ -14,4 +14,5 @@ whylogs==1.4.4
 scipy==1.13.1
 requests==2.32.3
 pytest==8.2.2
-pyarrow==16.1.0
+pyarrow
+setuptools<71.0.0

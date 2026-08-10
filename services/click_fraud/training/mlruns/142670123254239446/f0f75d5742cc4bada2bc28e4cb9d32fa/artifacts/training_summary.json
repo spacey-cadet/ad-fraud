@@ -1,0 +1,7 @@
+{
+  "heuristic_f1": 0.16800956490097207,
+  "linear_f1": 0.16931962248203972,
+  "lightgbm_f1": 0.3249542961608775,
+  "cost_minimizing_threshold": 0.3,
+  "final_f1": 0.3609818027930597
+}

@@ -1,0 +1,15 @@
+artifact_uri: file:///home/lol/Documents/AI%20Engineer/practice/ad-fraud/services/click_fraud/training/mlruns/142670123254239446/f0f75d5742cc4bada2bc28e4cb9d32fa/artifacts
+end_time: 1786356652143
+entry_point_name: ''
+experiment_id: '142670123254239446'
+lifecycle_stage: active
+run_id: f0f75d5742cc4bada2bc28e4cb9d32fa
+run_name: baseline_hierarchy
+run_uuid: f0f75d5742cc4bada2bc28e4cb9d32fa
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1786356647377
+status: 3
+tags: []
+user_id: lol

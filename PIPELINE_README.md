@@ -98,7 +98,8 @@ infra/k8s/                        # placeholder for cluster manifests beyond rol
 
 ### 1. Generate data and build the warehouse
 ```bash
-pip install -r requirements.txt
+python3 -m venv .venv
+source .venv/bin/activate
 make data          # synthetic users, ad_clicks, subscription_events, dim_advertisers
 make warehouse      # loads raw parquet into DuckDB, runs dbt, runs dbt tests
 ```
@@ -129,7 +130,7 @@ make up
 make test
 ```
 
-## Design notes worth knowing before you present this
+## Design notes worth knowing
 
 - **Cost-matrix thresholding, not Youden's J.** Click-fraud false positives
   (blocking a legitimate click) are an immediate, dollar-denominated cost;

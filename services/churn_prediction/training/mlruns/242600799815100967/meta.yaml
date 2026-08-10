@@ -1,0 +1,6 @@
+artifact_location: file:///home/lol/Documents/AI%20Engineer/practice/ad-fraud/services/churn_prediction/training/mlruns/242600799815100967
+creation_time: 1786356816578
+experiment_id: '242600799815100967'
+last_update_time: 1786356816578
+lifecycle_stage: active
+name: churn_prediction
