@@ -2,6 +2,8 @@
 # exactly as fixed for local/docker-compose use. This is a separate image.
 FROM public.ecr.aws/lambda/python:3.12
 
+RUN dnf install -y libgomp && dnf clean all
+
 COPY services/churn_prediction/serving/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt 
 

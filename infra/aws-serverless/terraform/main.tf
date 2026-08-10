@@ -60,8 +60,8 @@ resource "aws_lambda_function" "click_fraud" {
   package_type  = "Image"
   image_uri     = "${aws_ecr_repository.click_fraud.repository_url}:latest"
 
-  memory_size = 512
-  timeout     = 10
+  memory_size = 1024
+  timeout     = 30
 
   environment {
     variables = {
@@ -77,8 +77,8 @@ resource "aws_lambda_function" "churn_prediction" {
   package_type  = "Image"
   image_uri     = "${aws_ecr_repository.churn_prediction.repository_url}:latest"
 
-  memory_size = 512
-  timeout     = 10
+  memory_size = 1024
+  timeout     = 30
 }
 
 # --- Function URLs: public HTTPS endpoints, no API Gateway. auth_type
