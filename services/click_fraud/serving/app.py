@@ -90,3 +90,11 @@ def healthz():
 def metrics():
     from fastapi import Response
     return Response(prom.generate_latest(), media_type="text/plain")
+
+
+# --- Lambda only: everything above is untouched. Mangum wraps the existing
+# FastAPI app as the handler Lambda's container runtime calls per invocation.
+# Local/docker-compose/Oracle deploys never import this — they run uvicorn
+# directly against `app`, same as before. ---
+from mangum import Mangum  # noqa: E402
+handler = Mangum(app)
