@@ -151,6 +151,10 @@ def main():
             "lightgbm_f1": gbm_f1,
             "cost_minimizing_threshold": best_thr,
             "final_f1": final_f1,
+            # Was logged to MLflow but missing from this file -- a nightly
+            # quality gate comparing "old model vs. new model" needs this
+            # on disk, since MLflow's UI isn't something CI can diff against.
+            "total_cost_usd": best_cost,
         }
         with open("training_summary.json", "w") as f:
             json.dump(summary, f, indent=2)
