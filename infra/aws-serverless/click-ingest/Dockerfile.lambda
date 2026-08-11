@@ -1,0 +1,15 @@
+# Lambda-specific build for the ingestion endpoint. Same pattern as
+# click-fraud/churn-prediction's Dockerfile.lambda -- Mangum wraps the
+# FastAPI app as the Lambda Runtime API handler. No model.txt here,
+# this service doesn't score anything, it only validates and publishes.
+
+FROM public.ecr.aws/lambda/python:3.12
+
+COPY services/click_ingest/serving/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY services/click_ingest/serving/app.py ./app.py
+
+# app.handler = the Mangum-wrapped FastAPI app. Same flat-copy shape as
+# the other two Lambda.Dockerfile builds.
+CMD ["app.handler"]

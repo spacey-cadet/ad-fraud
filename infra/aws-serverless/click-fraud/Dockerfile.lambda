@@ -1,0 +1,28 @@
+# Lambda-specific build. Keep services/click_fraud/serving/Dockerfile exactly
+# as-is for local/docker-compose/Oracle use — this is a SEPARATE image, built
+# from a different base, for AWS Lambda's container runtime only.
+#
+# Why this can't just be your existing Dockerfile with a new CMD: Lambda's
+# execution model calls a handler function per invocation via the Lambda
+# Runtime API, it doesn't connect to a listening server the way
+# docker-compose/Oracle do. That's what public.ecr.aws/lambda/python:3.11
+# (implements the Runtime API) and Mangum (wraps your FastAPI app as that
+# handler) are for.
+
+FROM public.ecr.aws/lambda/python:3.12
+
+RUN dnf install -y libgomp && dnf clean all
+
+COPY services/click_fraud/serving/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt --no-cache-dir 
+
+COPY services/click_fraud/serving/app.py ./app.py
+COPY services/click_fraud/training/model.txt ./model.txt
+
+ENV MODEL_PATH=model.txt
+
+# app.handler = the Mangum-wrapped FastAPI app added to app.py (see chat).
+# Files land flat in /var/task (Lambda's WORKDIR), matching how app.py
+# imports things locally — same "flat copy" shape as your existing
+# Dockerfile, just applied consistently this time.
+CMD ["app.handler"]

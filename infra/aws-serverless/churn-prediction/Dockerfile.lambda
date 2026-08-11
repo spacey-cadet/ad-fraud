@@ -1,0 +1,15 @@
+# Lambda-specific build — keep services/churn_prediction/serving/Dockerfile
+# exactly as fixed for local/docker-compose use. This is a separate image.
+FROM public.ecr.aws/lambda/python:3.12
+
+RUN dnf install -y libgomp && dnf clean all
+
+COPY services/churn_prediction/serving/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt 
+
+COPY services/churn_prediction/serving/app.py ./app.py
+COPY services/churn_prediction/training/model.txt ./model.txt
+
+ENV MODEL_PATH=model.txt
+
+CMD ["app.handler"]
