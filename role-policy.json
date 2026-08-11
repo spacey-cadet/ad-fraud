@@ -1,0 +1,34 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": ["ecr:GetAuthorizationToken"],
+            "Effect": "Allow",
+            "Resource": "*"
+        },
+        {
+            "Action": [
+                "ecr:BatchCheckLayerAvailability",
+                "ecr:BatchGetImage",
+                "ecr:GetDownloadUrlForLayer",
+                "ecr:PutImage",
+                "ecr:InitiateLayerUpload",
+                "ecr:UploadLayerPart",
+                "ecr:CompleteLayerUpload"
+            ],
+            "Effect": "Allow",
+            "Resource": [
+                "arn:aws:ecr:us-east-1:395249043027:repository/click-fraud-serving",
+                "arn:aws:ecr:us-east-1:395249043027:repository/churn-prediction-serving"
+            ]
+        },
+        {
+            "Action": ["lambda:UpdateFunctionCode"],
+            "Effect": "Allow",
+            "Resource": [
+                "arn:aws:lambda:us-east-1:395249043027:function:click-fraud-scoring",
+                "arn:aws:lambda:us-east-1:395249043027:function:churn-prediction-scoring"
+            ]
+        }
+    ]
+}
