@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 *.parquet filter=lfs diff=lfs merge=lfs -text
 infra/aws-serverless/terraform/.terraform/providers/registry.terraform.io/hashicorp/aws/6.58.0/linux_amd64/terraform-provider-aws_v6.58.0_x5 filter=lfs diff=lfs merge=lfs -text
 terraform-provider-aws_v6.58.0_x5 filter=lfs diff=lfs merge=lfs -text
 *0_x5 filter=lfs diff=lfs merge=lfs -text
 *.duckdb filter=lfs diff=lfs merge=lfs -text
+=======
+*.parquet *.duckdb filter=lfs diff=lfs merge=lfs -text
+>>>>>>> origin/main

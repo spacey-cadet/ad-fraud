@@ -41,6 +41,7 @@ def score(f: UserFeatures):
 @app.get("/healthz")
 def healthz():
     return {"status": "ok"}
+<<<<<<< HEAD
 
 # --- Lambda only: everything above is untouched. Mangum wraps the existing
 # FastAPI app as the handler Lambda's container runtime calls per invocation.
@@ -48,3 +49,5 @@ def healthz():
 # directly against `app`, same as before. ---
 from mangum import Mangum  # noqa: E402
 handler = Mangum(app)
+=======
+>>>>>>> origin/main
