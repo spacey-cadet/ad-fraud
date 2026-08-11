@@ -12,7 +12,7 @@
                     "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
                 },
                 "StringLike": {
-                    "token.actions.githubusercontent.com:sub": "repo:spacey-cadet/ad-fraud:ref:refs/heads/aws-serverless"
+                    "token.actions.githubusercontent.com:sub": "repo:spacey-cadet@126669871/ad-fraud@1315334560:ref:refs/heads/aws-serverless"
                 }
             }
         }
