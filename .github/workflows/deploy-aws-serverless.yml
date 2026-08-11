@@ -14,7 +14,7 @@ permissions:
   id-token: write # required for OIDC -- do not remove
   contents: read
 
-  
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -23,6 +23,12 @@ jobs:
         service: [click-fraud, churn-prediction]
     steps:
       - uses: actions/checkout@v4
+
+      - name: Debug OIDC token claims
+        run: |
+          IDTOKEN=$(curl -sSL -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+            "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=sts.amazonaws.com" | jq -r '.value')
+          echo "$IDTOKEN" | cut -d. -f2 | base64 -d 2>/dev/null | jq .
 
       # --- This step fails until AWS_DEPLOY_ROLE_ARN is set as a repo
       # secret, pointing at an IAM role that trusts GitHub's OIDC
