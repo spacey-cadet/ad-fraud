@@ -2,38 +2,28 @@ name: Deploy AWS Serverless
 
 on:
   push:
-    branches:
-      - aws-serverless
+    branches: [aws-serverless]
+    paths-ignore:
+      - "reference_rehearsal_scripts/**"
+      - "**.md"
 
 env:
   AWS_REGION: us-east-1
-  # Actual account ID -- fine to keep in plain text, it's not a secret.
-  AWS_ACCOUNT_ID: "395249043027"
 
 permissions:
   id-token: write # required for OIDC -- do not remove
   contents: read
 
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        service: [click-fraud, churn-prediction]
     steps:
       - uses: actions/checkout@v4
 
-      - name: Debug OIDC token claims
-        run: |
-          IDTOKEN=$(curl -sSL -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
-            "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=sts.amazonaws.com" | jq -r '.value')
-          echo "$IDTOKEN" | cut -d. -f2 | base64 -d 2>/dev/null | jq .
-
-      # --- This step fails until AWS_DEPLOY_ROLE_ARN is set as a repo
-      # secret, pointing at an IAM role that trusts GitHub's OIDC
-      # provider. That role does not exist yet -- see the README note
-      # below for what to create before this workflow can run at all. ---
+      # Reuses the SAME GitHub OIDC role Project 1's deploy-aws-serverless.yml
+      # needs (AWS_DEPLOY_ROLE_ARN secret). That role's trust/permissions
+      # policy must allow this repo's OIDC subject and include ECR/Lambda
+      # permissions for the churn-serving repo/function.
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -44,27 +34,15 @@ jobs:
         id: ecr-login
         uses: aws-actions/amazon-ecr-login@v2
 
-      - name: Set service path
-        id: service-vars
-        run: |
-          if [ "${{ matrix.service }}" = "click-fraud" ]; then
-            echo "dir=click_fraud" >> "$GITHUB_OUTPUT"
-            echo "repo=click-fraud-serving" >> "$GITHUB_OUTPUT"
-            echo "function=click-fraud-scoring" >> "$GITHUB_OUTPUT"
-          else
-            echo "dir=churn_prediction" >> "$GITHUB_OUTPUT"
-            echo "repo=churn-prediction-serving" >> "$GITHUB_OUTPUT"
-            echo "function=churn-prediction-scoring" >> "$GITHUB_OUTPUT"
-          fi
-
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      # --- provenance/sbom disabled deliberately: default Buildx output
-      # is a multi-manifest OCI image index that Lambda's CreateFunction/
-      # UpdateFunctionCode rejects outright. This bit us once already
-      # (see PIPELINE_README / chat history) -- don't remove these flags. ---
-      - name: Build and push image
+      # --provenance=false --sbom=false is not optional: default buildx
+      # behavior attaches attestations that produce a multi-manifest OCI
+      # image index, and Lambda's CreateFunction/UpdateFunctionCode
+      # rejects that with "image manifest ... media type is not
+      # supported." (hit and fixed once already, on Project 1.)
+      - name: Build and push (Lambda-compatible manifest)
         env:
           ECR_REGISTRY: ${{ steps.ecr-login.outputs.registry }}
         run: |
@@ -72,16 +50,15 @@ jobs:
             --platform linux/amd64 \
             --provenance=false \
             --sbom=false \
-            -f infra/aws-serverless/${{ matrix.service }}/Dockerfile.lambda \
-            -t "$ECR_REGISTRY/${{ steps.service-vars.outputs.repo }}:${{ github.sha }}" \
-            -t "$ECR_REGISTRY/${{ steps.service-vars.outputs.repo }}:latest" \
-            --push \
-            .
+            -f Dockerfile.lambda \
+            -t "$ECR_REGISTRY/churn-serving:${{ github.sha }}" \
+            -t "$ECR_REGISTRY/churn-serving:latest" \
+            --push .
 
       - name: Update Lambda function code
         env:
           ECR_REGISTRY: ${{ steps.ecr-login.outputs.registry }}
         run: |
           aws lambda update-function-code \
-            --function-name "${{ steps.service-vars.outputs.function }}" \
-            --image-uri "$ECR_REGISTRY/${{ steps.service-vars.outputs.repo }}:${{ github.sha }}"
+            --function-name churn-serving \
+            --image-uri "$ECR_REGISTRY/churn-serving:${{ github.sha }}"
