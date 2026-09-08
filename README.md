@@ -1,9 +1,7 @@
 # Ad Platform ML
 
 Two scoring services — click-fraud detection and churn prediction — sharing
-a feature/user base. This is **Project 1 of 3** in a broader ad-platform-ml
-effort (Project 2: churn escalation detector, XGBoost; Project 3: WAVLM
-speech emotion recognition — neither started yet).
+a feature/user base.
 
 This repo has two live, intentionally different deployment targets on two
 branches:
