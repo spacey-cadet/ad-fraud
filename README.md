@@ -9,7 +9,7 @@ branches:
 - **`main`** — a fully local, self-hostable stack. Free, no cloud account
   needed, good for offline development.
 - **`aws-serverless`** — a real AWS deployment, serverless-first, scoped to
-  a **~$15/month budget across all three projects combined**.
+  a **~$5/month budget**.
 
 Both branches share the same training/model code
 (`services/*/training/`, `services/*/serving/app.py`'s core scoring logic).
