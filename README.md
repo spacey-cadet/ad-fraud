@@ -162,8 +162,6 @@ automatically) or run `aws lambda update-function-code` manually.
 - **Drift monitoring is unbuilt** — planned to ride on the same S3 request
   log as retraining (feature drift via PSI, rolling fraud-rate tracking,
   score-distribution tracking), not yet implemented.
-- **Project 2 (churn escalation, XGBoost) and Project 3 (WAVLM speech
-  emotion) haven't been started on this branch.**
 
 ---
 
